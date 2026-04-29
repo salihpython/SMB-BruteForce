@@ -1,35 +1,44 @@
-SMB-BruteForce
-SMB-BruteForce is a powerful, multi-threaded security tool developed for professionals to audit and verify the strength of Server Message Block (SMB) authentication. By automating the process of testing credential pairs against networked systems, it helps administrators identify weak passwords and potential entry points for lateral movement within an infrastructure.
+SMB-BruteForce is a professional-grade, high-performance security auditing tool designed to evaluate the robustness of Server Message Block (SMB) authentication mechanisms. In modern network environments, SMB is a primary target for lateral movement and unauthorized data access. This tool provides security researchers, penetration testers, and system administrators with a reliable way to identify weak credentials and misconfigured authentication policies before malicious actors can exploit them.
 
-## Setup
-git clone https://github.com/salihpython/SMB-BruteForce.git‎ ‎ ‎‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ 
+By automating the systematic testing of username and password combinations, SMB-BruteForce streamlines the process of discovering "low-hanging fruit"—accounts with default, common, or easily guessable passwords that often serve as the first link in a breach chain.
 
-## Key Features
-Multi-Threaded Performance: Engineered for high-speed execution, allowing for rapid testing of large wordlists without sacrificing system stability.
+Key Features
+🚀 High-Concurrency Engine
+Built with performance in mind, the tool utilizes advanced multi-threading to handle hundreds of authentication attempts per second. This ensures that even large-scale network segments can be audited in a fraction of the time required by traditional scripts.
 
-Protocol Compatibility: Supports various versions of the SMB protocol, targeting TCP Port 445 and legacy Port 139 (NetBIOS).
+🛠️ Protocol Versatility
+The tool is engineered to interact with multiple versions of the SMB protocol. It can target:
 
-Dynamic Wordlist Support: Easily load custom dictionaries for both usernames and passwords to perform targeted or broad-spectrum attacks.
+Direct TCP (Port 445): For modern Windows and Samba environments.
 
-Session Management: Automatically handles connection handshakes, timeouts, and error states for a seamless auditing experience.
+NetBIOS over TCP/IP (Port 139): To ensure coverage for legacy systems and older infrastructure.
 
-Detailed Output: Real-time feedback on successful hits, failed attempts, and account lockouts for efficient post-scan analysis.
+📂 Flexible Dictionary Management
+Users can supply custom wordlists for both usernames and passwords. Whether you are performing a Credential Spraying attack (testing one password against many users) or a Traditional Brute-Force (testing many passwords against one user), the tool adapts to your specific audit requirements.
 
-## Use Cases
-Vulnerability Assessments: Proactively identify accounts using default, leaked, or easily guessable credentials.
+🔍 Intelligent Session Handling
+The engine manages the complexities of the SMB handshake, including dialect negotiation and session setup. It is designed to gracefully handle connection timeouts, network jitter, and remote server resets without crashing.
 
-Penetration Testing: Simulate real-world brute-force and credential-spraying attacks to evaluate network defense resilience.
+📊 Real-Time Analytics & Logging
+Every attempt is logged with precision. Successful authentications are highlighted for immediate attention, while failure codes are analyzed to distinguish between "Wrong Password," "Account Locked," or "Connection Refused."
 
-Compliance Auditing: Verify that organizational password policies and account lockout thresholds are being enforced correctly across the domain.
+Technical Use Cases
+1. Internal Penetration Testing
+Simulate the tactics of real-world adversaries who have gained a foothold in a network and are attempting to escalate privileges or move laterally to file servers and domain controllers.
 
-Network Hardening: Locate exposed SMB shares and ensure that only authorized, strong-credentialed users have access.
+2. Password Policy Enforcement
+Quantify the effectiveness of your organization's password policy. Use this tool to prove that even if a policy exists, users may still be using weak credentials that bypass standard filters.
 
-## Technical Overview
-The tool operates by initiating an SMB negotiation with the target host. It attempts to authenticate using the provided credentials via the NTLM or Kerberos mechanisms (depending on configuration). This process is vital for testing the security of Windows File Sharing, Printer Sharing, and Remote Administration interfaces.
+3. Red Team Operations
+Incorporate SMB-BruteForce into automated red team pipelines to identify exposed shares and administrative interfaces that rely on weak NTLM authentication.
 
-## Disclaimer
-[!IMPORTANT]
-This tool is strictly intended for educational purposes and authorized security auditing. Unauthorized access to private networks or systems is illegal and unethical. The developer assumes no liability for misuse or damage caused by this program. Always obtain written consent before testing.
+Installation & Setup
+Bash
+# Clone the repository
+git clone https://github.com/salihpython/SMB-BruteForce.git
 
-## License
-Distributed under the MIT License. See LICENSE for more information.
+# Navigate to the directory
+cd SMB-BruteForce
+
+# Install dependencies
+pip install -r requirements.txt
