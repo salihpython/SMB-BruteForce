@@ -3,6 +3,11 @@ SMB-BruteForce is a powerful, multi-threaded security tool developed for profess
 
 ## Setup
 
+git clone https://github.com/salihpython/SMB-BruteForce.git
+ls
+cd SMB-BruteForce
+ls
+
 
 ## Key Features
 Multi-Threaded Performance: Engineered for high-speed execution, allowing for rapid testing of large wordlists without sacrificing system stability.
